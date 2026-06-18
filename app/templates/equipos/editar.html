@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Editar Equipo</h2>
+
+<form method="POST">
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Nombre
+        </label>
+
+        <input
+            type="text"
+            name="nombre"
+            value="{{ equipo.nombre }}"
+            class="form-control"
+            required>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Descripción
+        </label>
+
+        <textarea
+            name="descripcion"
+            class="form-control"
+            rows="4"
+            required>{{ equipo.descripcion }}</textarea>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Hackathon
+        </label>
+
+        <select
+            name="hackathon_id"
+            class="form-control">
+
+            {% for hackathon in hackathons %}
+
+            <option
+                value="{{ hackathon.id }}"
+                {% if hackathon.id == equipo.hackathon_id %}
+                selected
+                {% endif %}
+            >
+                {{ hackathon.nombre }}
+            </option>
+
+            {% endfor %}
+
+        </select>
+
+    </div>
+
+    <button
+        class="btn btn-warning">
+
+        Actualizar
+
+    </button>
+
+</form>
+
+{% endblock %}

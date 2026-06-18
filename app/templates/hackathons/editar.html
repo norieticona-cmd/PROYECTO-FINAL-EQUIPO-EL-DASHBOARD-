@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Editar Hackathon</h2>
+
+<form method="POST">
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Nombre
+        </label>
+
+        <input
+            type="text"
+            name="nombre"
+            value="{{ hackathon.nombre }}"
+            class="form-control"
+            required>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Descripción
+        </label>
+
+        <textarea
+            name="descripcion"
+            class="form-control"
+            rows="4"
+            required>{{ hackathon.descripcion }}</textarea>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Estado
+        </label>
+
+        <select
+            name="estado"
+            class="form-control">
+
+            <option value="Planificado"
+            {% if hackathon.estado == 'Planificado' %}
+            selected
+            {% endif %}>
+            Planificado
+            </option>
+
+            <option value="Activo"
+            {% if hackathon.estado == 'Activo' %}
+            selected
+            {% endif %}>
+            Activo
+            </option>
+
+            <option value="Finalizado"
+            {% if hackathon.estado == 'Finalizado' %}
+            selected
+            {% endif %}>
+            Finalizado
+            </option>
+
+        </select>
+
+    </div>
+
+    <button
+        class="btn btn-warning">
+
+        Actualizar
+
+    </button>
+
+</form>
+
+{% endblock %}

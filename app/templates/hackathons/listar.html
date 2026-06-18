@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between mb-3">
+
+    <h2>Hackathons</h2>
+
+    <a
+        href="/hackathons/nuevo"
+        class="btn btn-primary">
+
+        Nuevo Hackathon
+
+    </a>
+
+</div>
+
+<table class="table table-bordered">
+
+    <thead>
+
+        <tr>
+
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {% for hackathon in hackathons %}
+
+        <tr>
+
+            <td>{{ hackathon.id }}</td>
+
+            <td>{{ hackathon.nombre }}</td>
+
+            <td>{{ hackathon.estado }}</td>
+<td>
+
+    <a
+        href="/hackathons/editar/{{ hackathon.id }}"
+        class="btn btn-warning btn-sm">
+
+        Editar
+
+    </a>
+
+    <a
+        href="/hackathons/eliminar/{{ hackathon.id }}"
+        class="btn btn-danger btn-sm">
+
+        Eliminar
+
+    </a>
+
+</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}

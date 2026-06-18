@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Nuevo Proyecto</h2>
+
+<form method="POST">
+
+    <div class="mb-3">
+        <label class="form-label">
+            Nombre
+        </label>
+
+        <input
+            type="text"
+            name="nombre"
+            class="form-control"
+            required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">
+            Descripción
+        </label>
+
+        <textarea
+            name="descripcion"
+            class="form-control"
+            rows="4"
+            required></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">
+            Tecnología
+        </label>
+
+        <input
+            type="text"
+            name="tecnologia"
+            class="form-control"
+            required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">
+            Estado
+        </label>
+
+        <select
+            name="estado"
+            class="form-control">
+
+            <option>En desarrollo</option>
+            <option>Terminado</option>
+            <option>Presentado</option>
+
+        </select>
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Equipo
+        </label>
+
+        <select
+            name="equipo_id"
+            class="form-control">
+
+            {% for equipo in equipos %}
+
+            <option value="{{ equipo.id }}">
+                {{ equipo.nombre }}
+            </option>
+
+            {% endfor %}
+
+        </select>
+
+    </div>
+
+    <button class="btn btn-success">
+        Guardar
+    </button>
+
+</form>
+
+{% endblock %}

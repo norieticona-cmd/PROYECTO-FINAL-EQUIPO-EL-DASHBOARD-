@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="mb-4 fw-bold">
+    📊 Dashboard General
+</h2>
+
+<div class="row">
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card text-white bg-primary shadow-lg">
+
+            <div class="card-body text-center">
+
+                <h5>🏆 Hackathons</h5>
+
+                <h1>{{ total_hackathons }}</h1>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card text-white bg-success shadow-lg">
+
+            <div class="card-body text-center">
+
+                <h5>👥 Equipos</h5>
+
+                <h1>{{ total_equipos }}</h1>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card text-white bg-info shadow-lg">
+
+            <div class="card-body text-center">
+
+                <h5>🎓 Participantes</h5>
+
+                <h1>{{ total_participantes }}</h1>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card text-white bg-warning shadow-lg">
+
+            <div class="card-body text-center">
+
+                <h5>🧠 Mentores</h5>
+
+                <h1>{{ total_mentores }}</h1>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card text-white bg-danger shadow-lg">
+
+            <div class="card-body text-center">
+
+                <h5>💡 Proyectos</h5>
+
+                <h1>{{ total_proyectos }}</h1>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card text-white bg-dark shadow-lg">
+
+            <div class="card-body text-center">
+
+                <h5>📝 Evaluaciones</h5>
+
+                <h1>{{ total_evaluaciones }}</h1>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="alert alert-success mt-3">
+
+    🚀 Sistema funcionando correctamente y listo para continuar creciendo.
+
+</div>
+
+<hr class="my-4">
+
+<div class="row">
+
+    <div class="col-md-6">
+
+        <div class="card border-success shadow">
+
+            <div class="card-body">
+
+                <h4>
+                    📈 Promedio General
+                </h4>
+
+                <h2>
+
+                    {% if promedio %}
+
+                        {{ "%.2f"|format(promedio) }}
+
+                    {% else %}
+
+                        0
+
+                    {% endif %}
+
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="card border-warning shadow">
+
+            <div class="card-body">
+
+                <h4>
+                    🏆 Proyecto Líder
+                </h4>
+
+                {% if mejor_evaluacion %}
+
+                    <h5>
+
+                        {{ mejor_evaluacion.proyecto.nombre }}
+
+                    </h5>
+
+                    <p>
+
+                        Puntaje:
+                        {{ mejor_evaluacion.puntaje }}
+
+                    </p>
+
+                {% else %}
+
+                    <p>
+                        Sin evaluaciones
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

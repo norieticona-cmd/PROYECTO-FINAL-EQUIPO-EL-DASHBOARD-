@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Editar Participante</h2>
+
+<form method="POST">
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Nombre
+        </label>
+
+        <input
+            type="text"
+            name="nombre"
+            value="{{ participante.nombre }}"
+            class="form-control"
+            required>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Email
+        </label>
+
+        <input
+            type="email"
+            name="email"
+            value="{{ participante.email }}"
+            class="form-control"
+            required>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Teléfono
+        </label>
+
+        <input
+            type="text"
+            name="telefono"
+            value="{{ participante.telefono }}"
+            class="form-control">
+
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Equipo
+        </label>
+
+        <select
+            name="equipo_id"
+            class="form-control">
+
+            {% for equipo in equipos %}
+
+            <option
+                value="{{ equipo.id }}"
+                {% if equipo.id == participante.equipo_id %}
+                selected
+                {% endif %}
+            >
+                {{ equipo.nombre }}
+            </option>
+
+            {% endfor %}
+
+        </select>
+
+    </div>
+
+    <button
+        class="btn btn-warning">
+
+        Actualizar
+
+    </button>
+
+</form>
+
+{% endblock %}

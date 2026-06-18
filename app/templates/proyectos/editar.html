@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Editar Proyecto</h2>
+
+<form method="POST">
+
+    <div class="mb-3">
+        <label class="form-label">Nombre</label>
+
+        <input
+            type="text"
+            name="nombre"
+            value="{{ proyecto.nombre }}"
+            class="form-control"
+            required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Descripción</label>
+
+        <textarea
+            name="descripcion"
+            class="form-control"
+            rows="4"
+            required>{{ proyecto.descripcion }}</textarea>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Tecnología</label>
+
+        <input
+            type="text"
+            name="tecnologia"
+            value="{{ proyecto.tecnologia }}"
+            class="form-control"
+            required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Estado</label>
+
+        <select
+            name="estado"
+            class="form-control">
+
+            <option {% if proyecto.estado == 'En desarrollo' %}selected{% endif %}>
+                En desarrollo
+            </option>
+
+            <option {% if proyecto.estado == 'Terminado' %}selected{% endif %}>
+                Terminado
+            </option>
+
+            <option {% if proyecto.estado == 'Presentado' %}selected{% endif %}>
+                Presentado
+            </option>
+
+        </select>
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Equipo
+        </label>
+
+        <select
+            name="equipo_id"
+            class="form-control">
+
+            {% for equipo in equipos %}
+
+            <option
+                value="{{ equipo.id }}"
+                {% if equipo.id == proyecto.equipo_id %}
+                selected
+                {% endif %}
+            >
+                {{ equipo.nombre }}
+            </option>
+
+            {% endfor %}
+
+        </select>
+
+    </div>
+
+    <button class="btn btn-warning">
+        Actualizar
+    </button>
+
+</form>
+
+{% endblock %}

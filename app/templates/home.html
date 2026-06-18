@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="text-center py-5">
+
+    <h1 class="display-3 fw-bold">
+        🏆 Hackathon Manager
+    </h1>
+
+    <p class="lead mt-4">
+
+        Plataforma de gestión de Hackathons,
+        equipos, mentores y proyectos tecnológicos.
+
+    </p>
+
+    <div class="mt-4">
+
+        <a href="/login"
+           class="btn btn-primary btn-lg me-2">
+
+            Iniciar Sesión
+
+        </a>
+
+        <a href="/register"
+           class="btn btn-success btn-lg">
+
+            Registrarse
+
+        </a>
+
+    </div>
+
+</div>
+
+<hr class="my-5">
+
+<div class="row text-center">
+
+    <div class="col-md-4">
+
+        <div class="card shadow">
+
+            <div class="card-body">
+
+                <h1>🏆</h1>
+
+                <h4>Hackathons</h4>
+
+                <p>
+                    Organiza competencias tecnológicas.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card shadow">
+
+            <div class="card-body">
+
+                <h1>👥</h1>
+
+                <h4>Equipos</h4>
+
+                <p>
+                    Gestiona participantes y mentores.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card shadow">
+
+            <div class="card-body">
+
+                <h1>💡</h1>
+
+                <h4>Proyectos</h4>
+
+                <p>
+                    Controla proyectos y evaluaciones.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

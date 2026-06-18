@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between mb-3">
+
+    <h2>Proyectos</h2>
+
+    <a
+        href="/proyectos/nuevo"
+        class="btn btn-primary">
+
+        Nuevo Proyecto
+
+    </a>
+
+</div>
+
+<table class="table table-bordered">
+
+    <thead>
+
+        <tr>
+
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Tecnología</th>
+            <th>Estado</th>
+            <th>Equipo</th>
+            <th>Acciones</th>
+
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {% for proyecto in proyectos %}
+
+        <tr>
+
+            <td>{{ proyecto.id }}</td>
+            <td>{{ proyecto.nombre }}</td>
+            <td>{{ proyecto.tecnologia }}</td>
+            <td>{{ proyecto.estado }}</td>
+            <td>{{ proyecto.equipo.nombre }}</td>
+            <td>
+
+    <a
+        href="/proyectos/editar/{{ proyecto.id }}"
+        class="btn btn-warning btn-sm">
+
+        Editar
+
+    </a>
+
+    <a
+        href="/proyectos/eliminar/{{ proyecto.id }}"
+        class="btn btn-danger btn-sm">
+
+        Eliminar
+
+    </a>
+
+</td>
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}
