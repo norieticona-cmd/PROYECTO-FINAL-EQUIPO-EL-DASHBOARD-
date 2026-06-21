@@ -168,6 +168,92 @@
 
                 <h4>
                     🥇 Último Premio Registrado
+                <hr class="my-4">
+
+<div class="row">
+
+    <div class="col-md-6">
+
+        <div class="card shadow-lg">
+
+            <div class="card-body">
+
+                <h4>
+                    🏆 Proyecto Campeón
+                </h4>
+
+                {% if mejor_evaluacion %}
+
+                    <h3 class="text-success">
+
+                        {{ mejor_evaluacion.proyecto.nombre }}
+
+                    </h3>
+
+                    <p>
+
+                        Puntaje:
+                        {{ mejor_evaluacion.puntaje }}
+
+                    </p>
+
+                {% else %}
+
+                    <p>
+                        Sin proyectos evaluados
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="card shadow-lg">
+
+            <div class="card-body">
+
+                <h4>
+                    📊 Resumen Ejecutivo
+                </h4>
+
+                <ul>
+
+                    <li>
+                        Hackathons:
+                        {{ total_hackathons }}
+                    </li>
+
+                    <li>
+                        Equipos:
+                        {{ total_equipos }}
+                    </li>
+
+                    <li>
+                        Proyectos:
+                        {{ total_proyectos }}
+                    </li>
+
+                    <li>
+                        Premios otorgados:
+                        {{ ultimo_premio.id if ultimo_premio else 0 }}
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+                
+                
                 </h4>
 
                 {% if ultimo_premio %}
