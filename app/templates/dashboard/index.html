@@ -158,6 +158,58 @@
 
                 <h4>
                     🏆 Proyecto Líder
+                <div class="row mt-4">
+
+    <div class="col-md-12">
+
+        <div class="card border-primary shadow">
+
+            <div class="card-body">
+
+                <h4>
+                    🥇 Último Premio Registrado
+                </h4>
+
+                {% if ultimo_premio %}
+
+                    <h5>
+
+                        {{ ultimo_premio.nombre }}
+
+                    </h5>
+
+                    <p>
+
+                        {{ ultimo_premio.descripcion }}
+
+                    </p>
+
+                    <strong>
+
+                        Proyecto:
+
+                        {{ ultimo_premio.proyecto.nombre }}
+
+                    </strong>
+
+                {% else %}
+
+                    <p>
+
+                        No existen premios registrados
+
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
                 </h4>
 
                 {% if mejor_evaluacion %}

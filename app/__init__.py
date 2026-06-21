@@ -25,6 +25,7 @@ from app.participantes import participante_bp
 from app.mentores import mentor_bp
 from app.proyectos import proyecto_bp
 from app.evaluaciones import evaluacion_bp
+from app.premios import premio_bp
 
 
 def create_app():
@@ -51,6 +52,7 @@ def create_app():
     app.register_blueprint(mentor_bp)
     app.register_blueprint(proyecto_bp)
     app.register_blueprint(evaluacion_bp)
+    app.register_blueprint(premio_bp)
     
     
     with app.app_context():

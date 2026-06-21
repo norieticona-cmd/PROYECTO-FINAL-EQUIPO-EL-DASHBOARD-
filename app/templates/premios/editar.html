@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Editar Premio</h2>
+
+<form method="POST">
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Nombre
+        </label>
+
+        <input
+            type="text"
+            name="nombre"
+            value="{{ premio.nombre }}"
+            class="form-control"
+            required>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Descripción
+        </label>
+
+        <input
+            type="text"
+            name="descripcion"
+            value="{{ premio.descripcion }}"
+            class="form-control">
+
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Proyecto
+        </label>
+
+        <select
+            name="proyecto_id"
+            class="form-select">
+
+            {% for proyecto in proyectos %}
+
+            <option
+                value="{{ proyecto.id }}"
+                {% if proyecto.id == premio.proyecto_id %}
+                selected
+                {% endif %}
+            >
+
+                {{ proyecto.nombre }}
+
+            </option>
+
+            {% endfor %}
+
+        </select>
+
+    </div>
+
+    <button class="btn btn-warning">
+
+        Actualizar
+
+    </button>
+
+</form>
+
+{% endblock %}

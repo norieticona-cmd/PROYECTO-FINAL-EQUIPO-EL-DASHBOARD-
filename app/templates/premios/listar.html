@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="mb-4">
+    🏆 Premios
+</h2>
+
+<a href="/premios/nuevo"
+   class="btn btn-primary mb-3">
+
+    Nuevo Premio
+
+</a>
+
+<table class="table table-bordered">
+
+    <thead>
+
+        <tr>
+
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Proyecto</th>
+            <th>Acciones</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {% for premio in premios %}
+
+        <tr>
+
+            <td>{{ premio.id }}</td>
+
+            <td>{{ premio.nombre }}</td>
+
+            <td>{{ premio.descripcion }}</td>
+
+            <td>
+
+                {% if premio.proyecto %}
+
+                    {{ premio.proyecto.nombre }}
+
+                {% endif %}
+
+            </td>
+            <td>
+
+    <a
+        href="/premios/editar/{{ premio.id }}"
+        class="btn btn-warning btn-sm">
+
+        Editar
+
+    </a>
+
+    <a
+        href="/premios/eliminar/{{ premio.id }}"
+        class="btn btn-danger btn-sm">
+
+        Eliminar
+
+    </a>
+
+</td>
+
+
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}
+
+
+

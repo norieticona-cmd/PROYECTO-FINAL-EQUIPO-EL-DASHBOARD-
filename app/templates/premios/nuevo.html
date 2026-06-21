@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="mb-4">
+    🏆 Nuevo Premio
+</h2>
+
+<form method="POST">
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Nombre del Premio
+        </label>
+
+        <input type="text"
+               name="nombre"
+               class="form-control"
+               required>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Descripción
+        </label>
+
+        <input type="text"
+               name="descripcion"
+               class="form-control">
+
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Proyecto Ganador
+        </label>
+
+        <select name="proyecto_id"
+                class="form-select">
+
+            {% for proyecto in proyectos %}
+
+            <option value="{{ proyecto.id }}">
+
+                {{ proyecto.nombre }}
+
+            </option>
+
+            {% endfor %}
+
+        </select>
+
+    </div>
+
+    <button class="btn btn-success">
+
+        Guardar Premio
+
+    </button>
+
+</form>
+
+{% endblock %}
