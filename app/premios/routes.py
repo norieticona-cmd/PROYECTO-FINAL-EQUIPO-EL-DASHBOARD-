@@ -9,7 +9,6 @@ from app.extensions import db
 
 from app.models.proyecto import Proyecto
 
-
 @premio_bp.route("/premios")
 @login_required
 def listar_premios():
@@ -20,7 +19,7 @@ def listar_premios():
         "premios/listar.html",
         premios=premios
     )
-    
+
 @premio_bp.route("/premios/nuevo", methods=["GET", "POST"])
 @login_required
 def nuevo_premio():
@@ -88,6 +87,3 @@ def eliminar_premio(id):
     db.session.commit()
 
     return redirect("/premios")
-
-    
-    

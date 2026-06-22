@@ -3,74 +3,36 @@
 {% block content %}
 
 <div class="d-flex justify-content-between mb-3">
-
-    <h2>Participantes</h2>
-
-    <a
-        href="/participantes/nuevo"
-        class="btn btn-primary">
-
+    <h2 class="titulo-participantes">Participantes</h2>
+    <a href="/participantes/nuevo" class="btn btn-primary">
         Nuevo Participante
-
     </a>
-
 </div>
 
-<table class="table table-bordered">
-
-    <thead>
-
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
         <tr>
-
             <th>ID</th>
             <th>Nombre</th>
             <th>Email</th>
             <th>Equipo</th>
             <th>Acciones</th>
-
         </tr>
-
     </thead>
-
     <tbody>
-
         {% for participante in participantes %}
-
         <tr>
-
             <td>{{ participante.id }}</td>
-
             <td>{{ participante.nombre }}</td>
-
             <td>{{ participante.email }}</td>
-
             <td>{{ participante.equipo.nombre }}</td>
-
+            <td>
+                <a href="/participantes/editar/{{ participante.id }}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="/participantes/eliminar/{{ participante.id }}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
         </tr>
-
-        <td>
-
-    <a
-        href="/participantes/editar/{{ participante.id }}"
-        class="btn btn-warning btn-sm">
-
-        Editar
-
-    </a>
-
-    <a
-        href="/participantes/eliminar/{{ participante.id }}"
-        class="btn btn-danger btn-sm">
-
-        Eliminar
-
-    </a>
-
-</td>
         {% endfor %}
-
     </tbody>
-
 </table>
 
 {% endblock %}

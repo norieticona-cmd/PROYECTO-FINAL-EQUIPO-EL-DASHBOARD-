@@ -3,73 +3,36 @@
 {% block content %}
 
 <div class="d-flex justify-content-between mb-3">
-
-    <h2>Mentores</h2>
-
-    <a
-        href="/mentores/nuevo"
-        class="btn btn-primary">
-
+    <h2 class="titulo-mentores">Mentores</h2>
+    <a href="/mentores/nuevo" class="btn btn-primary">
         Nuevo Mentor
-
     </a>
-
 </div>
 
-<table class="table table-bordered">
-
-    <thead>
-
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
         <tr>
-
             <th>ID</th>
             <th>Nombre</th>
             <th>Especialidad</th>
             <th>Email</th>
             <th>Acciones</th>
-
         </tr>
-
     </thead>
-
     <tbody>
-
         {% for mentor in mentores %}
-
         <tr>
-
             <td>{{ mentor.id }}</td>
             <td>{{ mentor.nombre }}</td>
             <td>{{ mentor.especialidad }}</td>
             <td>{{ mentor.email }}</td>
             <td>
-
-    <a
-        href="/mentores/editar/{{ mentor.id }}"
-        class="btn btn-warning btn-sm">
-
-        Editar
-
-    </a>
-
-    <a
-        href="/mentores/eliminar/{{ mentor.id }}"
-        class="btn btn-danger btn-sm">
-
-        Eliminar
-
-    </a>
-
-</td>
-
-
+                <a href="/mentores/editar/{{ mentor.id }}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="/mentores/eliminar/{{ mentor.id }}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
         </tr>
-
         {% endfor %}
-
     </tbody>
-
 </table>
 
 {% endblock %}
-s

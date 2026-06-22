@@ -3,73 +3,41 @@
 {% block content %}
 
 <div class="d-flex justify-content-between mb-3">
+    <h2 class="titulo-proyectos">
+        Proyectos
+    </h2>
 
-    <h2>Proyectos</h2>
-
-    <a
-        href="/proyectos/nuevo"
-        class="btn btn-primary">
-
+<a href="/proyectos/nuevo" class="btn btn-primary">
         Nuevo Proyecto
-
-    </a>
-
+</a>
 </div>
 
-<table class="table table-bordered">
-
-    <thead>
-
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
         <tr>
-
             <th>ID</th>
             <th>Nombre</th>
             <th>Tecnología</th>
             <th>Estado</th>
             <th>Equipo</th>
             <th>Acciones</th>
-
-
         </tr>
-
     </thead>
-
     <tbody>
-
         {% for proyecto in proyectos %}
-
         <tr>
-
             <td>{{ proyecto.id }}</td>
             <td>{{ proyecto.nombre }}</td>
             <td>{{ proyecto.tecnologia }}</td>
             <td>{{ proyecto.estado }}</td>
             <td>{{ proyecto.equipo.nombre }}</td>
             <td>
-
-    <a
-        href="/proyectos/editar/{{ proyecto.id }}"
-        class="btn btn-warning btn-sm">
-
-        Editar
-
-    </a>
-
-    <a
-        href="/proyectos/eliminar/{{ proyecto.id }}"
-        class="btn btn-danger btn-sm">
-
-        Eliminar
-
-    </a>
-
-</td>
+                <a href="/proyectos/editar/{{ proyecto.id }}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="/proyectos/eliminar/{{ proyecto.id }}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
         </tr>
-
         {% endfor %}
-
     </tbody>
-
 </table>
 
 {% endblock %}

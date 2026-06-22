@@ -3,75 +3,36 @@
 {% block content %}
 
 <div class="d-flex justify-content-between mb-3">
-
-    <h2>Evaluaciones</h2>
-
-    <a
-        href="/evaluaciones/nuevo"
-        class="btn btn-primary">
-
+    <h2 class="titulo-evaluaciones">Evaluaciones</h2>
+    <a href="/evaluaciones/nuevo" class="btn btn-primary">
         Nueva Evaluación
-
     </a>
-
 </div>
 
-<table class="table table-bordered">
-
-    <thead>
-
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
         <tr>
-
             <th>ID</th>
             <th>Puntaje</th>
             <th>Fecha</th>
             <th>Proyecto</th>
             <th>Acciones</th>
-
-
         </tr>
-
     </thead>
-
     <tbody>
-
         {% for evaluacion in evaluaciones %}
-
         <tr>
-
             <td>{{ evaluacion.id }}</td>
-
             <td>{{ evaluacion.puntaje }}</td>
-
             <td>{{ evaluacion.fecha }}</td>
-
             <td>{{ evaluacion.proyecto.nombre }}</td>
             <td>
-
-    <a
-        href="/evaluaciones/editar/{{ evaluacion.id }}"
-        class="btn btn-warning btn-sm">
-
-        Editar
-
-    </a>
-
-    <a
-        href="/evaluaciones/eliminar/{{ evaluacion.id }}"
-        class="btn btn-danger btn-sm">
-
-        Eliminar
-
-    </a>
-
-</td>
-
+                <a href="/evaluaciones/editar/{{ evaluacion.id }}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="/evaluaciones/eliminar/{{ evaluacion.id }}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
         </tr>
-
         {% endfor %}
-
     </tbody>
-
 </table>
 
 {% endblock %}
