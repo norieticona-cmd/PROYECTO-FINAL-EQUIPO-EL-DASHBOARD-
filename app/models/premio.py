@@ -1,6 +1,5 @@
 from app.extensions import db
 
-
 class Premio(db.Model):
 
     __tablename__ = "premios"

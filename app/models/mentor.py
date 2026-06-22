@@ -1,6 +1,5 @@
 from app.extensions import db
 
-
 class Mentor(db.Model):
 
     __tablename__ = "mentores"

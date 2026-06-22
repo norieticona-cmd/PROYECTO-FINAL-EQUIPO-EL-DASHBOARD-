@@ -1,6 +1,5 @@
 from app.extensions import db
 
-
 class Participante(db.Model):
 
     __tablename__ = "participantes"

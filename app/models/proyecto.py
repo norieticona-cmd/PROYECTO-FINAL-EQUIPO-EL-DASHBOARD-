@@ -1,6 +1,5 @@
 from app.extensions import db
 
-
 class Proyecto(db.Model):
 
     __tablename__ = "proyectos"

@@ -1,6 +1,5 @@
 from app.extensions import db
 
-
 class Hackathon(db.Model):
 
     __tablename__ = "hackathons"
